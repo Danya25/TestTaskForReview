@@ -1,0 +1,23 @@
+.sidenav-content {
+    padding: 25px;
+}
+
+mat-sidenav {
+    background: transparent linear-gradient(14deg, #56CCF2 0%, #2F80ED 100%) 0% 0% padding-box no-repeat;
+}
+
+.mat-list-item {
+    color: #FFFFFF !important;
+    font: normal normal normal 16px / 19px SF Pro Text;
+}
+
+.mat-list-item-content {
+    padding-left: 28px !important;
+}
+
+.priority-title {
+    font: normal normal medium 20px / 24px SF Pro Text;
+    color: #FFFFFF;
+    margin-left: 28px;
+    margin-top: 25px;
+}

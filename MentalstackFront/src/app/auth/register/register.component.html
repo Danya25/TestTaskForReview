@@ -1,0 +1,86 @@
+<div class="row h-100">
+    <div class="col-6">
+        <div class="d-flex flex-row justify-content-center align-items-center background-image h-100">
+            <img src="../../../assets/registration/logo.svg" alt="">
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="registration-wrapper">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <form style="width: 50%" [formGroup]="form" (ngSubmit)="onSubmit()">
+                    <div class="title-wrapper">
+                        <h3 class="registration-title">Sign Up</h3>
+                    </div>
+                    <div style="margin-bottom: 10px">
+                        <mat-form-field class="w-100">
+                            <mat-label>Email</mat-label>
+                            <input formControlName="email" matInput>
+                        </mat-form-field>
+                        <span class="error-text" *ngIf="form.get('email').touched && form.get('email').invalid">
+                            <span *ngIf="form.get('email').errors?.required">
+                                Field required
+                            </span>
+                            <span *ngIf="form.get('email').errors?.email">
+                                Email incorrect
+                            </span>
+                        </span>
+                    </div>
+                    <div style="margin-bottom: 10px">
+                        <mat-form-field class="w-100">
+                            <mat-label>Password</mat-label>
+                            <input type="password" formControlName="password" matInput>
+                        </mat-form-field>
+                        <span class="error-text" *ngIf="form.get('password').touched && form.get('password').invalid">
+                            <span *ngIf="form.get('password').errors?.required">
+                                Field required!
+                            </span>
+                            <span *ngIf="form.get('password').errors?.pattern">
+                                ●   at least 8 characters <br>
+                                ●   spaces and line breaks must be absent <br>
+                                ●	at least 2 capital letters <br>
+                                ●	at least 1 special character (!, @, etc) <br>
+                                ●   at least 1 digit <br>
+                            </span>
+                        </span>
+                    </div>
+                    <div style="margin-bottom: 10px">
+                        <mat-form-field class="w-100">
+                            <mat-label>Confirm Password</mat-label>
+                            <input type="password" formControlName="repassword" matInput>
+                        </mat-form-field>
+                        <span class="error-text"
+                              *ngIf="form.get('repassword').touched && form.get('repassword').invalid">
+                            <span *ngIf="form.get('repassword').errors?.required">
+                                Field required
+                            </span>
+                        </span>
+                        <br>
+                        <span class="error-text" *ngIf="form.errors?.compare">
+                                Passwords are not equal.
+                        </span>
+                    </div>
+                    <div class="text-center">
+                        <button [disabled]="!form.valid"  type="submit" class="btn btn-primary submit-btn">
+                            Sign Up
+                        </button>
+                    </div>
+                    <div class="text-center sign-up-text">
+                        <span>I Already have an account. <a routerLink="/auth/login"
+                                                            class="sign-in-text">Sign in</a></span>
+                    </div>
+                    <div class="terms-condition-text text-center mt-5">
+                        <span>By accessing your account, you agree to our</span>
+                        <br>
+                        <div>
+                            <span>
+                                <a href="">Terms Conditions</a>
+                                and
+                                <a href="">Privacy Policy</a>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

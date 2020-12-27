@@ -1,0 +1,67 @@
+<div class="row h-100">
+    <div class="col-6">
+        <div class="d-flex flex-row justify-content-center align-items-center background-image h-100">
+            <img src="../../../assets/registration/logo.svg" alt="">
+        </div>
+    </div>
+    <div class="col-6">
+        <div class="registration-wrapper">
+            <div class="d-flex flex-column align-items-center justify-content-center">
+                <form [formGroup]="form" (ngSubmit)="onSubmit()" style="width: 50%">
+                    <div class="title-wrapper">
+                        <h3 class="registration-title">Sign In</h3>
+                    </div>
+                    <div style="margin-bottom: 10px">
+                        <mat-form-field class="w-100">
+                            <mat-label>Email</mat-label>
+                            <input formControlName="email" matInput >
+                        </mat-form-field>
+                        <span class="error-text" *ngIf="form.get('email').touched && form.get('email').invalid">
+                            <span *ngIf="form.get('email').errors?.required">
+                                Field required
+                            </span>
+                            <span *ngIf="form.get('email').errors?.email">
+                                Email incorrect
+                            </span>
+                        </span>
+                    </div>
+                    <div style="margin-bottom: 10px">
+                        <mat-form-field class="w-100">
+                            <mat-label>Password</mat-label>
+                            <input type="password" formControlName="password" matInput>
+                        </mat-form-field>
+                        <span class="error-text" *ngIf="form.get('password').touched && form.get('password').invalid">
+                            <span *ngIf="form.get('password').errors?.required">
+                                Field required
+                            </span>
+                        </span>
+                    </div>
+                    <div class="text-center forgot-password-text">
+                        <a href="#">Forgot password?</a>
+                    </div>
+                    <div class="text-center">
+                        <button [disabled]="!form.valid" type="submit" class="btn btn-primary submit-btn">
+                            Sign In
+                        </button>
+                    </div>
+                    <div class="text-center sign-up-text">
+                        <a routerLink="/auth/registration">
+                            Sign Up
+                        </a>
+                    </div>
+                    <div class="terms-condition-text text-center mt-5">
+                        <span>By accessing your account, you agree to our</span>
+                        <br>
+                        <div>
+                            <span>
+                                <a href="">Terms Conditions</a>
+                                and
+                                <a href="">Privacy Policy</a>
+                            </span>
+                        </div>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<div class="h-100">
+    <mat-sidenav-container class="h-100">
+        <mat-sidenav [(opened)]="opened" mode="side" #sidenav>
+            <mat-nav-list class="text-center" style="width: 221px;">
+                <img width="110px" height="60px" src="../../../assets/registration/logo.svg">
+                <h2 class="priority-title text-left">Priority</h2>
+                <a mat-list-item> All</a>
+                <a mat-list-item> Urgently </a>
+                <a mat-list-item> Important </a>
+                <a mat-list-item> Normal </a>
+                <a mat-list-item> Activities </a>
+                <a mat-list-item> Neutral </a>
+                
+                <a mat-list-item (click)="exitFromAccount()">Exit</a>
+            </mat-nav-list>
+        </mat-sidenav>
+        <mat-sidenav-content>
+            <div class="sidenav-content">
+                <h4>Kek</h4>
+            </div>
+        </mat-sidenav-content>
+    </mat-sidenav-container>
+</div>

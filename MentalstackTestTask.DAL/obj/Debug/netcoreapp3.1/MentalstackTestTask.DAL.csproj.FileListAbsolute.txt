@@ -1,0 +1,15 @@
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.DAL\bin\Debug\netcoreapp3.1\MentalstackTestTask.DAL.deps.json
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.DAL\bin\Debug\netcoreapp3.1\MentalstackTestTask.DAL.dll
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.DAL\bin\Debug\netcoreapp3.1\MentalstackTestTask.DAL.pdb
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.DAL\obj\Debug\netcoreapp3.1\MentalstackTestTask.DAL.csprojAssemblyReference.cache
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.DAL\obj\Debug\netcoreapp3.1\MentalstackTestTask.DAL.AssemblyInfoInputs.cache
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.DAL\obj\Debug\netcoreapp3.1\MentalstackTestTask.DAL.AssemblyInfo.cs
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.DAL\obj\Debug\netcoreapp3.1\MentalstackTestTask.DAL.csproj.CoreCompileInputs.cache
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.DAL\obj\Debug\netcoreapp3.1\MentalstackTestTask.DAL.dll
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.DAL\obj\Debug\netcoreapp3.1\MentalstackTestTask.DAL.pdb
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.DAL\bin\Debug\netcoreapp3.1\MentalstackTestTask.DAL.runtimeconfig.json
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.DAL\bin\Debug\netcoreapp3.1\MentalstackTestTask.DAL.runtimeconfig.dev.json
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.DAL\obj\Debug\netcoreapp3.1\MentalstackTestTask.DAL.genruntimeconfig.cache
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.DAL\bin\Debug\netcoreapp3.1\MentalstackTestTask.Domain.dll
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.DAL\bin\Debug\netcoreapp3.1\MentalstackTestTask.Domain.pdb
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.DAL\obj\Debug\netcoreapp3.1\MentalstackTestTask.DAL.csproj.CopyComplete

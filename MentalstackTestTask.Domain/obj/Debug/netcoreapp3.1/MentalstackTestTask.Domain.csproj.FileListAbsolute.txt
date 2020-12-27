@@ -1,0 +1,12 @@
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Domain\bin\Debug\netcoreapp3.1\MentalstackTestTask.Domain.deps.json
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Domain\bin\Debug\netcoreapp3.1\MentalstackTestTask.Domain.dll
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Domain\bin\Debug\netcoreapp3.1\MentalstackTestTask.Domain.pdb
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Domain\obj\Debug\netcoreapp3.1\MentalstackTestTask.Domain.csprojAssemblyReference.cache
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Domain\obj\Debug\netcoreapp3.1\MentalstackTestTask.Domain.AssemblyInfoInputs.cache
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Domain\obj\Debug\netcoreapp3.1\MentalstackTestTask.Domain.AssemblyInfo.cs
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Domain\obj\Debug\netcoreapp3.1\MentalstackTestTask.Domain.csproj.CoreCompileInputs.cache
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Domain\obj\Debug\netcoreapp3.1\MentalstackTestTask.Domain.dll
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Domain\obj\Debug\netcoreapp3.1\MentalstackTestTask.Domain.pdb
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Domain\bin\Debug\netcoreapp3.1\MentalstackTestTask.Domain.runtimeconfig.json
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Domain\bin\Debug\netcoreapp3.1\MentalstackTestTask.Domain.runtimeconfig.dev.json
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Domain\obj\Debug\netcoreapp3.1\MentalstackTestTask.Domain.genruntimeconfig.cache

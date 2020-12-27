@@ -1,0 +1,38 @@
+.background-image{
+    background: url('../../../assets/registration/bg.png');
+    background-size: cover;
+    height: 100%;
+}
+.registration-title{
+    font: normal normal bold 24px / 27px Comfortaa;
+    text-align: center;
+    margin-bottom: 0px;
+}
+.registration-wrapper{
+    margin-top: 123px;
+}
+.title-wrapper{
+    margin-bottom: 60px;
+}
+.forgot-password-text{
+    color: #2F80ED;
+    font: normal normal medium 16px / 24px SF Pro Text;
+    margin-top: 28px;
+    text-decoration: underline;
+}
+.submit-btn{
+    width: 100%;
+    max-width: 257px;
+    height: 47px;
+    margin-top: 35px;
+    border-radius: 26px;
+}
+.sign-up-text{
+    margin-top: 35px;
+}
+.error-text{
+    color: red;
+}
+.terms-condition-text{
+    color: #BBBBC7;
+}

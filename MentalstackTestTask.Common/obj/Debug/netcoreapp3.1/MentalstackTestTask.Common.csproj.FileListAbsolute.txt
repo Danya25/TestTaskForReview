@@ -1,0 +1,17 @@
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Common\bin\Debug\netcoreapp3.1\MentalstackTestTask.Common.deps.json
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Common\bin\Debug\netcoreapp3.1\MentalstackTestTask.Common.dll
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Common\bin\Debug\netcoreapp3.1\MentalstackTestTask.Common.pdb
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Common\bin\Debug\netcoreapp3.1\MentalstackTestTask.DAL.dll
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Common\bin\Debug\netcoreapp3.1\MentalstackTestTask.Domain.dll
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Common\bin\Debug\netcoreapp3.1\MentalstackTestTask.DAL.pdb
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Common\bin\Debug\netcoreapp3.1\MentalstackTestTask.Domain.pdb
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Common\obj\Debug\netcoreapp3.1\MentalstackTestTask.Common.csprojAssemblyReference.cache
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Common\obj\Debug\netcoreapp3.1\MentalstackTestTask.Common.AssemblyInfoInputs.cache
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Common\obj\Debug\netcoreapp3.1\MentalstackTestTask.Common.AssemblyInfo.cs
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Common\obj\Debug\netcoreapp3.1\MentalstackTestTask.Common.csproj.CoreCompileInputs.cache
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Common\obj\Debug\netcoreapp3.1\MentalstackTestTask.Common.csproj.CopyComplete
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Common\obj\Debug\netcoreapp3.1\MentalstackTestTask.Common.dll
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Common\obj\Debug\netcoreapp3.1\MentalstackTestTask.Common.pdb
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Common\bin\Debug\netcoreapp3.1\MentalstackTestTask.Common.runtimeconfig.json
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Common\bin\Debug\netcoreapp3.1\MentalstackTestTask.Common.runtimeconfig.dev.json
+C:\Users\Black\source\repos\MentalstackTestTask\MentalstackTestTask.Common\obj\Debug\netcoreapp3.1\MentalstackTestTask.Common.genruntimeconfig.cache
