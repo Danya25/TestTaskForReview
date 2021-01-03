@@ -1,6 +1,6 @@
 export enum MissionPriority {
-    High,
-    Medium,
-    Low,
-    Now
+    Urgently,
+    Important,
+    Normal,
+    Neutral
 }
