@@ -24,6 +24,10 @@ import {MatSidenavModule} from '@angular/material/sidenav';
 import {MatToolbarModule} from '@angular/material/toolbar';
 import {MatIconModule} from '@angular/material/icon';
 import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
+import { TaskCreatorComponent } from './main/task-creator/task-creator.component';
+import {MatMenuModule} from '@angular/material/menu';
+import {MatDatepickerModule} from '@angular/material/datepicker';
+import {MatNativeDateModule} from '@angular/material/core';
 
 @NgModule({
     declarations: [
@@ -32,6 +36,7 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
         LoginComponent,
         RegisterComponent,
         AppLayoutComponent,
+        TaskCreatorComponent,
     ],
     imports: [
         BrowserModule,
@@ -48,6 +53,9 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
         MatListModule,
         MatButtonModule,
         MatIconModule,
+        MatMenuModule,
+        MatDatepickerModule,
+        MatNativeDateModule,
         BsDropdownModule.forRoot()
     ],
     providers: [AuthGuard, UnauthGuard, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}, {
