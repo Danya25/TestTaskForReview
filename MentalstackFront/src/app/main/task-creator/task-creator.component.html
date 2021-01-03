@@ -31,8 +31,22 @@
                     <mat-icon>arrow_drop_down_circle</mat-icon>
                 </div>
                 <mat-menu #menu3="matMenu">
-                    <button mat-menu-item>Item 1</button>
-                    <button mat-menu-item>Item 2</button>
+                    <div mat-menu-item class="d-flex flex-row align-items-center">
+                        <div style="width: 12px; height: 12px; background: #F24A3C; border-radius: 50%; margin-right: 12px;"></div>
+                        <span class="priority-text">Urgently</span>
+                    </div>
+                    <div mat-menu-item class="d-flex flex-row align-items-center">
+                        <div style="width: 12px; height: 12px; background: #F1A41F; border-radius: 50%; margin-right: 12px;"></div>
+                        <span class="priority-text">Important</span>
+                    </div>
+                    <div mat-menu-item class="d-flex flex-row align-items-center">
+                        <div style="width: 12px; height: 12px; background: #56CCF2; border-radius: 50%; margin-right: 12px;"></div>
+                        <span class="priority-text">Normal</span>
+                    </div>
+                    <div mat-menu-item class="d-flex flex-row align-items-center">
+                        <div style="width: 12px; height: 12px; background: #BBBBC7; border-radius: 50%; margin-right: 12px;"></div>
+                        <span class="priority-text">Neutral</span>
+                    </div>
                 </mat-menu>
             </div>
             <div>

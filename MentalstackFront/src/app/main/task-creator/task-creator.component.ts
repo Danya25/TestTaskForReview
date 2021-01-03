@@ -15,7 +15,7 @@ export class TaskCreatorComponent implements OnInit {
   ngOnInit(): void {
     this.form = new FormGroup({
       title: new FormControl('', [Validators.required]),
-      priority: new FormControl(MissionPriority.No, [Validators.required]),
+      priority: new FormControl(MissionPriority.Neutral, [Validators.required]),
       endTime: new FormControl('', [Validators.required]),
       endDate: new FormControl('', [Validators.required])
     });
