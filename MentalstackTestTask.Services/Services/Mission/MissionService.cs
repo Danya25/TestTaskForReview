@@ -18,10 +18,11 @@ namespace MentalstackTestTask.Services.Services.Mission
         {
             _context = context;
         }
-        public async Task<List<DAL.Models.Mission>> GetAll()
+        public async Task<List<MissionDTO>> GetAll()
         {
             var result = await _context.Missions.AsQueryable().ToListAsync();
-            return result;
+            var missionsDto = _mapper.Map<List<MissionDTO>>(result);
+            return missionsDto;
         }
 
         public async Task<bool> Save(MissionDTO task)

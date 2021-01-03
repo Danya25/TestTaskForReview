@@ -9,6 +9,6 @@ namespace MentalstackTestTask.Services.Services.Mission
     public interface IMissionService
     {
         public Task<bool> Save(MissionDTO task);
-        public Task<List<DAL.Models.Mission>> GetAll();
+        public Task<List<MissionDTO>> GetAll();
     }
 }

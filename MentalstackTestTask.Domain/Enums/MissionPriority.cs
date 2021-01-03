@@ -6,9 +6,9 @@ namespace MentalstackTestTask.Common.Enums
 {
     public enum MissionPriority
     {
-        High,
-        Medium,
-        Low,
-        No
+        Urgently,
+        Important,
+        Normal,
+        Neutral
     }
 }

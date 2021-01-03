@@ -19,8 +19,4 @@
     <ProjectReference Include="..\MentalstackTestTask.Domain\MentalstackTestTask.Domain.csproj" />
   </ItemGroup>
 
-  <ItemGroup>
-    <Folder Include="Services\Mission\" />
-  </ItemGroup>
-
 </Project>
