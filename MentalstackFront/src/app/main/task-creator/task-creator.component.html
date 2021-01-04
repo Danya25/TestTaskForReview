@@ -1,5 +1,5 @@
 <div class="d-flex flex-column">
-    <form [formGroup]="form" action="">
+    <form [formGroup]="form">
         <div>
             <mat-form-field class="w-100">
                 <mat-label>Enter task title</mat-label>
@@ -13,39 +13,40 @@
                 </div>
                 <mat-menu #menu1="matMenu">
                     <mat-form-field appearance="fill">
-                        <mat-label>Choose a date</mat-label>
-                        <input matInput [matDatepicker]="picker">
-                        <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-                        <mat-datepicker #picker></mat-datepicker>
+                        <mat-label>Date</mat-label>
+                        <input matInput [matDatepicker]="picker1" [formControl]="form.controls['endDate']">
+                        <mat-datepicker-toggle matSuffix [for]="picker1"></mat-datepicker-toggle>
+                        <mat-datepicker #picker1></mat-datepicker>
                     </mat-form-field>
                 </mat-menu>
                 <div [matMenuTriggerFor]="menu2" style="margin-right: 30px; line-height: 15px;">
                     <mat-icon>access_time</mat-icon>
                 </div>
                 <mat-menu #menu2="matMenu">
-                    <mat-form-field class="example-full-width">
-                        <input type="time" matInput>
-                    </mat-form-field>
                 </mat-menu>
                 <div [matMenuTriggerFor]="menu3" style="margin-right: 30px; line-height: 15px;">
                     <mat-icon>arrow_drop_down_circle</mat-icon>
                 </div>
                 <mat-menu #menu3="matMenu">
-                    <div mat-menu-item class="d-flex flex-row align-items-center">
-                        <div style="width: 12px; height: 12px; background: #F24A3C; border-radius: 50%; margin-right: 12px;"></div>
+                    <div (click)="setPriority(0)" mat-menu-item class="d-flex flex-row align-items-center ">
+                        <div class="priority-circle" style="background: #F24A3C;"></div>
                         <span class="priority-text">Urgently</span>
                     </div>
-                    <div mat-menu-item class="d-flex flex-row align-items-center">
-                        <div style="width: 12px; height: 12px; background: #F1A41F; border-radius: 50%; margin-right: 12px;"></div>
+                    <div (click)="setPriority(1)" mat-menu-item class="d-flex flex-row align-items-center ">
+                        <div class="priority-circle" style="background: #F1A41F;"></div>
                         <span class="priority-text">Important</span>
                     </div>
-                    <div mat-menu-item class="d-flex flex-row align-items-center">
-                        <div style="width: 12px; height: 12px; background: #56CCF2; border-radius: 50%; margin-right: 12px;"></div>
+                    <div (click)="setPriority(2)" mat-menu-item class="d-flex flex-row align-items-center ">
+                        <div class="priority-circle" style="background: #56CCF2;"></div>
                         <span class="priority-text">Normal</span>
                     </div>
-                    <div mat-menu-item class="d-flex flex-row align-items-center">
-                        <div style="width: 12px; height: 12px; background: #BBBBC7; border-radius: 50%; margin-right: 12px;"></div>
+                    <div (click)="setPriority(3)" mat-menu-item class="d-flex flex-row align-items-center ">
+                        <div class="priority-circle" style="background: #BBBBC7;"></div>
                         <span class="priority-text">Neutral</span>
+                    </div>
+                    <hr>
+                    <div mat-menu-item>
+                        <input style="text-align: center" class="priority-text" matInput disabled type="text" [value]="form.controls['priority'].value">
                     </div>
                 </mat-menu>
             </div>

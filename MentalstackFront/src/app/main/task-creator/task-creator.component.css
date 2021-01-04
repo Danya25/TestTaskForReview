@@ -1,0 +1,11 @@
+.priority-circle {
+    border-radius: 50%;
+    margin-right: 12px;
+    width: 12px;
+    height: 12px;
+}
+
+.priority-text {
+    font: normal normal medium 12px / 24px SF Pro Text;
+    color: #212020;
+}
