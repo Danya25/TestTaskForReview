@@ -1,9 +1,9 @@
 <div class="d-flex flex-column">
-    <form [formGroup]="form">
+    <form [formGroup]="form" (ngSubmit)="onSubmit()">
         <div>
             <mat-form-field class="w-100">
                 <mat-label>Enter task title</mat-label>
-                <input matInput>
+                <input formControlName="title" matInput>
             </mat-form-field>
         </div>
         <div class="d-flex flex-row justify-content-between align-items-center">
@@ -23,6 +23,9 @@
                     <mat-icon>access_time</mat-icon>
                 </div>
                 <mat-menu #menu2="matMenu">
+                    <div (click)="$event.stopPropagation();">
+                        <timepicker formControlName="endTime"></timepicker>
+                    </div>
                 </mat-menu>
                 <div [matMenuTriggerFor]="menu3" style="margin-right: 30px; line-height: 15px;">
                     <mat-icon>arrow_drop_down_circle</mat-icon>
@@ -51,7 +54,7 @@
                 </mat-menu>
             </div>
             <div>
-                <button mat-raised-button color="primary">Send</button>
+                <button type="submit" mat-raised-button color="primary">Send</button>
             </div>
         </div>
     </form>

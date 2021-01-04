@@ -1,6 +1,9 @@
 import {Component, OnInit, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MissionPriority} from '../../models/enums/mission-priority.enum';
+import {User} from '../../models/user';
+import {Mission} from '../../models/mission';
+import {TaskService} from '../../services/task.service';
 
 @Component({
     selector: 'app-task-creator',
@@ -10,7 +13,7 @@ import {MissionPriority} from '../../models/enums/mission-priority.enum';
 export class TaskCreatorComponent implements OnInit {
     public form: FormGroup;
 
-    constructor() {
+    constructor(private taskService: TaskService) {
     }
 
     ngOnInit(): void {
@@ -24,6 +27,18 @@ export class TaskCreatorComponent implements OnInit {
 
     public setPriority(priority: number): void {
         this.form.controls['priority'].setValue(MissionPriority[priority]);
-        console.log(this.form.controls['priority']);
+    }
+
+    public onSubmit() {
+        const task: Mission = {
+            title: this.form.get('title').value,
+            priority: this.form.get('priority').value,
+            endTime: this.form.get('endTime').value,
+            endDate: this.form.get('endDate').value,
+            description: ''
+        };
+        this.taskService.saveTask(task).subscribe(t => {
+            console.log(t);
+        });
     }
 }
