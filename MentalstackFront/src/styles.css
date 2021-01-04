@@ -191,3 +191,7 @@ button.toast-close-button {
         width: 25em;
     }
 }
+
+.bs-datepicker-container{
+    padding: 0px !important;
+}

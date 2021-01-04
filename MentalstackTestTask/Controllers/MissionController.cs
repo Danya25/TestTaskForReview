@@ -19,8 +19,8 @@ namespace MentalstackTestTask.Controllers
     public class MissionController : ControllerBase
     {
         private ILogger<MissionController> _logger;
-        private MissionService _missionService;
-        public MissionController(ILogger<MissionController> logger, MissionService missionService)
+        private IMissionService _missionService;
+        public MissionController(ILogger<MissionController> logger, IMissionService missionService)
         {
             _logger = logger;
             _missionService = missionService;

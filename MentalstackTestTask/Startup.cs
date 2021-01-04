@@ -3,6 +3,7 @@ using MentalstackTestTask.Common.JWT;
 using MentalstackTestTask.Common.Mapper;
 using MentalstackTestTask.DAL;
 using MentalstackTestTask.Services.Services;
+using MentalstackTestTask.Services.Services.Mission;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
@@ -17,6 +18,7 @@ using Microsoft.OpenApi.Models;
 using System;
 using System.Collections.Generic;
 using System.Linq;
+using System.Text.Json.Serialization;
 using System.Threading.Tasks;
 
 namespace MentalstackTestTask
@@ -33,8 +35,8 @@ namespace MentalstackTestTask
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-
             services.AddTransient<IAuthService, AuthService>();
+            services.AddTransient<IMissionService, MissionService>();
             services.AddAutoMapper(typeof(AutoMapperProfile));
 
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
@@ -43,7 +45,10 @@ namespace MentalstackTestTask
                 builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
             }), ServiceLifetime.Scoped);
 
-            services.AddControllers();
+            services.AddControllers().AddJsonOptions(opts =>
+            {
+                opts.JsonSerializerOptions.Converters.Add(new JsonStringEnumConverter());
+            });
             services.AddSwaggerGen(c =>
             {
                 c.SwaggerDoc("v1", new OpenApiInfo { Title = "MentalstackTestTask", Version = "v1" });
@@ -107,6 +112,8 @@ namespace MentalstackTestTask
             app.UseCors("Cors");
 
             app.UseRouting();
+
+            app.UseAuthentication();
 
             app.UseAuthorization();
 

@@ -17,9 +17,9 @@ namespace MentalstackTestTask.Domain.DTO
         public MissionPriority Priority { get; set; }
 
         [Required(ErrorMessage = "EndDate is required!")]
-        public DateTime EndDate { get; set; }
+        public string EndDate { get; set; }
 
         [Required(ErrorMessage = "EndTime is required!")]
-        public DateTime EndTime { get; set; }
+        public string EndTime { get; set; }
     }
 }

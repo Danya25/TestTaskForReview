@@ -10,7 +10,7 @@ import {AppRoutingModule} from './app-routing.module';
 import {BrowserAnimationsModule} from '@angular/platform-browser/animations';
 import {MatFormFieldModule} from '@angular/material/form-field';
 import {MatInputModule} from '@angular/material/input';
-import {ReactiveFormsModule} from '@angular/forms';
+import {FormsModule, ReactiveFormsModule} from '@angular/forms';
 import {AuthGuard} from './services/guards/auth.guard';
 import {UnauthGuard} from './services/guards/unauth.guard';
 import {AppLayoutComponent} from './layouts/app-layout/app-layout.component';
@@ -27,7 +27,10 @@ import {BsDropdownModule} from 'ngx-bootstrap/dropdown';
 import { TaskCreatorComponent } from './main/task-creator/task-creator.component';
 import {MatMenuModule} from '@angular/material/menu';
 import {MatDatepickerModule} from '@angular/material/datepicker';
-import {MatNativeDateModule} from '@angular/material/core';
+import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
+import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
+import {TimepickerModule} from 'ngx-bootstrap/timepicker';
+import {MatSelectModule} from '@angular/material/select';
 
 @NgModule({
     declarations: [
@@ -56,7 +59,12 @@ import {MatNativeDateModule} from '@angular/material/core';
         MatMenuModule,
         MatDatepickerModule,
         MatNativeDateModule,
-        BsDropdownModule.forRoot()
+        BsDropdownModule.forRoot(),
+        BsDatepickerModule.forRoot(),
+        TimepickerModule.forRoot(),
+        FormsModule,
+        MatOptionModule,
+        MatSelectModule,
     ],
     providers: [AuthGuard, UnauthGuard, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}, {
         provide: HTTP_INTERCEPTORS,

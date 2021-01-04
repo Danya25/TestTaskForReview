@@ -11,12 +11,8 @@ namespace MentalstackTestTask.Common.Mapper
     {
         public AutoMapperProfile()
         {
-            CreateMap<UserDTO, User>()
-                .ForMember(t => t.Email, map => map.MapFrom(src => src.Email))
-                .ForMember(t => t.Password, map => map.MapFrom(src => src.Password));
-            CreateMap<User, UserDTO>()
-                .ForMember(t => t.Email, map => map.MapFrom(src => src.Email))
-                .ForMember(t => t.Password, map => map.MapFrom(src => src.Password));
+            CreateMap<UserDTO, User>();
+            CreateMap<User, UserDTO>();
         }
     }
 }
