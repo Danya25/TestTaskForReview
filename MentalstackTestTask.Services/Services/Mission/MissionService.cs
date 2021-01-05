@@ -14,9 +14,10 @@ namespace MentalstackTestTask.Services.Services.Mission
     {
         private DatabaseContext _context;
         private IMapper _mapper;
-        public MissionService(DatabaseContext context)
+        public MissionService(DatabaseContext context, IMapper mapper)
         {
             _context = context;
+            _mapper = mapper;
         }
         public async Task<List<MissionDTO>> GetAll()
         {
@@ -27,18 +28,21 @@ namespace MentalstackTestTask.Services.Services.Mission
 
         public async Task<bool> Save(MissionDTO task)
         {
-            using var transaction = _context.Database.BeginTransaction();
-            try
+            using (var transaction = _context.Database.BeginTransaction())
             {
-                var mission = _mapper.Map<DAL.Models.Mission>(task);
-                _context.Missions.Add(mission);
-                await transaction.CommitAsync();
-                return true;
-            }
-            catch
-            {
-                await transaction.RollbackAsync();
-                return false;
+                try
+                {
+                    var mission = _mapper.Map<DAL.Models.Mission>(task);
+                    _context.Missions.Add(mission);
+                    _context.SaveChanges();
+                    await transaction.CommitAsync();
+                    return true;
+                }
+                catch
+                {
+                    await transaction.RollbackAsync();
+                    return false;
+                }
             }
         }
 
