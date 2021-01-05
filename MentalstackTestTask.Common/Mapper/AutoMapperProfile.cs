@@ -1,9 +1,6 @@
 ﻿using AutoMapper;
 using MentalstackTestTask.DAL.Models;
 using MentalstackTestTask.Domain.DTO;
-using System;
-using System.Collections.Generic;
-using System.Text;
 
 namespace MentalstackTestTask.Common.Mapper
 {
@@ -13,6 +10,9 @@ namespace MentalstackTestTask.Common.Mapper
         {
             CreateMap<UserDTO, User>();
             CreateMap<User, UserDTO>();
+
+            CreateMap<MissionDTO, Mission>();
+            CreateMap<Mission, MissionDTO>();
         }
     }
 }
