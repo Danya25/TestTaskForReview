@@ -40,10 +40,7 @@ namespace MentalstackTestTask
             services.AddAutoMapper(typeof(AutoMapperProfile));
 
             var connectionString = Configuration.GetConnectionString("DefaultConnection");
-            services.AddDbContext<DatabaseContext>(t => t.UseSqlServer(connectionString, builder =>
-            {
-                builder.EnableRetryOnFailure(5, TimeSpan.FromSeconds(10), null);
-            }), ServiceLifetime.Scoped);
+            services.AddDbContext<DatabaseContext>(t => t.UseSqlServer(connectionString), ServiceLifetime.Scoped);
 
             services.AddControllers().AddJsonOptions(opts =>
             {
