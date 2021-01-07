@@ -31,6 +31,7 @@ import {MatNativeDateModule, MatOptionModule} from '@angular/material/core';
 import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import {TimepickerModule} from 'ngx-bootstrap/timepicker';
 import {MatSelectModule} from '@angular/material/select';
+import { TaskPainterComponent } from './main/task-painter/task-painter.component';
 
 @NgModule({
     declarations: [
@@ -40,6 +41,7 @@ import {MatSelectModule} from '@angular/material/select';
         RegisterComponent,
         AppLayoutComponent,
         TaskCreatorComponent,
+        TaskPainterComponent,
     ],
     imports: [
         BrowserModule,
