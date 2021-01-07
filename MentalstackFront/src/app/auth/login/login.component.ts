@@ -36,7 +36,7 @@ export class LoginComponent implements OnInit {
             }
             this.toastrService.success('Log in was successful');
             localStorage.setItem(
-                'user', JSON.stringify({name: user.email, token: t.value}),
+                'user', JSON.stringify({name: user.email, token: t.value.token, userId: t.value.userId}),
             );
             this.route.navigate(['']);
         });
