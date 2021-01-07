@@ -4,6 +4,7 @@ import {MissionPriority} from '../../models/enums/mission-priority.enum';
 import {User} from '../../models/user';
 import {Mission} from '../../models/mission';
 import {TaskService} from '../../services/task.service';
+import {UserService} from '../../services/user.service';
 
 @Component({
     selector: 'app-task-creator',
@@ -13,7 +14,7 @@ import {TaskService} from '../../services/task.service';
 export class TaskCreatorComponent implements OnInit {
     public form: FormGroup;
 
-    constructor(private taskService: TaskService) {
+    constructor(private taskService: TaskService, private userService: UserService) {
     }
 
     ngOnInit(): void {
@@ -35,7 +36,7 @@ export class TaskCreatorComponent implements OnInit {
             priority: this.form.get('priority').value,
             endTime: this.form.get('endTime').value,
             endDate: this.form.get('endDate').value,
-            description: ''
+            description: '',
         };
         this.taskService.saveTask(task).subscribe(t => {
             console.log(t);
