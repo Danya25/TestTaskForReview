@@ -31,7 +31,8 @@ namespace MentalstackTestTask.Controllers
         {
             try
             {
-                var result = await _missionService.Save(task);
+                var userId = Int32.Parse(User.Claims.First(t => t.Type == "UserId").Value);
+                var result = await _missionService.Save(task, userId);
                 return result.ToSuccessMethodResult();
             }
             catch (Exception ex)
@@ -42,11 +43,12 @@ namespace MentalstackTestTask.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<MethodResult<List<MissionDTO>>> GetAll()
+        public async Task<MethodResult<List<MissionDTO>>> GetAllById()
         {
             try
             {
-                var result = await _missionService.GetAll();
+                var userId = int.Parse(User.Claims.First(t=> t.Type == "UserId").Value);
+                var result = await _missionService.GetAllById(userId);
                 return result.ToSuccessMethodResult();
             }
             catch(Exception ex)
