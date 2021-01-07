@@ -13,5 +13,6 @@ namespace MentalstackTestTask.DAL.Models
         public DateTime EndDate { get; set; }
         public DateTime EndTime { get; set; }
         public MissionPriority Priority { get; set; }
+        public int UserId { get; set; }
     }
 }
