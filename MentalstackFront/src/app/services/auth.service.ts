@@ -3,6 +3,7 @@ import {Observable} from 'rxjs';
 import {User} from '../models/user';
 import {HttpClient} from '@angular/common/http';
 import {Answer} from '../models/answer';
+import {UserInfo} from '../models/user-info';
 
 @Injectable({
     providedIn: 'root'
@@ -15,7 +16,7 @@ export class AuthService {
     public registration(user: User): Observable<Answer<string>> {
         return this.http.post<Answer<string>>('api/Auth/Registration', user);
     }
-    login(user: User): Observable<Answer<string>> {
-        return this.http.post<Answer<string>>('api/Auth/Login', user);
+    login(user: User): Observable<Answer<UserInfo>> {
+        return this.http.post<Answer<UserInfo>>('api/Auth/Login', user);
     }
 }
