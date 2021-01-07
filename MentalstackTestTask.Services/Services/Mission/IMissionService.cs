@@ -8,7 +8,7 @@ namespace MentalstackTestTask.Services.Services.Mission
 {
     public interface IMissionService
     {
-        public Task<bool> Save(MissionDTO task);
-        public Task<List<MissionDTO>> GetAll();
+        public Task<bool> Save(MissionDTO task, int id);
+        public Task<List<MissionDTO>> GetAllById(int id);
     }
 }
