@@ -68,17 +68,17 @@ namespace MentalstackTestTask.Controllers
         [ProducesResponseType(typeof(MethodResult<string>), 200)]
         [AllowAnonymous]
         [HttpPost("[action]")]
-        public async Task<MethodResult<string>> Login(UserDTO user)
+        public async Task<MethodResult<UserInfoDTO>> Login(UserDTO user)
         {
             try
             {
-                var jwtToken = await _authService.LoginUserAsync(user);
-                return jwtToken.ToSuccessMethodResult();
+                var userInfo = await _authService.LoginUserAsync(user);
+                return userInfo.ToSuccessMethodResult();
             }
             catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
-                return ex.ToErrorMethodResult<string>();
+                return ex.ToErrorMethodResult<UserInfoDTO>();
             }
 
         }
