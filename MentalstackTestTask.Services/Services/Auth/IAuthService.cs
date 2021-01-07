@@ -10,6 +10,6 @@ namespace MentalstackTestTask.Services.Services
     {
         Task<bool> RegistrationUserAsync(UserDTO user);
 
-        Task<string> LoginUserAsync(UserDTO user);
+        Task<UserInfoDTO> LoginUserAsync(UserDTO user);
     }
 }

@@ -28,7 +28,7 @@ namespace MentalstackTestTask.Services.Services
             _mapper = mapper;
             _signingEncodingKey = signEncKey;
         }
-        public async Task<string> LoginUserAsync(UserDTO userDto)
+        public async Task<UserInfoDTO> LoginUserAsync(UserDTO userDto)
         {
             var user = _mapper.Map<User>(userDto);
             var userFromDb = await _dbContext.Users.FirstOrDefaultAsync(t => t.Email == user.Email);
@@ -41,7 +41,8 @@ namespace MentalstackTestTask.Services.Services
               
             var claims = new Claim[]
             {
-                new Claim(ClaimTypes.NameIdentifier, user.Email),
+                new Claim(ClaimTypes.Email, user.Email),
+                new Claim("UserId", $"{userFromDb.Id}")
             };
             var token = new JwtSecurityToken(
                 issuer: "MentalstackTestTask",
@@ -54,7 +55,12 @@ namespace MentalstackTestTask.Services.Services
                     )
                 );
             string jwtToken = new JwtSecurityTokenHandler().WriteToken(token);
-            return jwtToken;
+            var userInfo = new UserInfoDTO
+            {
+                Token = jwtToken,
+                UserId = userFromDb.Id
+            };
+            return userInfo;
         }
 
         public async Task<bool> RegistrationUserAsync(UserDTO userDto)
