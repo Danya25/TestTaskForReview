@@ -31,7 +31,7 @@ namespace MentalstackTestTask.Controllers
         {
             try
             {
-                var userId = Int32.Parse(User.Claims.First(t => t.Type == "UserId").Value);
+                var userId = int.Parse(User.Claims.First(t => t.Type == "UserId").Value);
                 var result = await _missionService.Save(task, userId);
                 return result.ToSuccessMethodResult();
             }
