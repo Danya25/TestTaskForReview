@@ -1,17 +1,20 @@
-import {Component, OnInit} from '@angular/core';
+import {Component, OnDestroy, OnInit} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {User} from '../../models/user';
 import {AuthService} from '../../services/auth.service';
 import {ToastrService} from 'ngx-toastr';
 import {Router} from '@angular/router';
+import {Subscription} from 'rxjs';
 
 @Component({
     selector: 'app-login',
     templateUrl: './login.component.html',
     styleUrls: ['./login.component.css']
 })
-export class LoginComponent implements OnInit {
+export class LoginComponent implements OnInit, OnDestroy {
+
     public form: FormGroup;
+    private subscriptions: Subscription[];
 
     constructor(private authService: AuthService, private toastrService: ToastrService, private route: Router) {
     }
@@ -29,7 +32,7 @@ export class LoginComponent implements OnInit {
             password: this.form.get('password').value,
             rePassword: this.form.get('password').value,
         };
-        this.authService.login(user).subscribe(t => {
+        this.subscriptions.push(this.authService.login(user).subscribe(t => {
             if (!t.success) {
                 this.toastrService.error(t.exceptionMessage);
                 return;
@@ -39,7 +42,10 @@ export class LoginComponent implements OnInit {
                 'user', JSON.stringify({name: user.email, token: t.value.token, userId: t.value.userId}),
             );
             this.route.navigate(['']);
-        });
+        }));
+    }
+
+    ngOnDestroy(): void {
     }
 
 }
