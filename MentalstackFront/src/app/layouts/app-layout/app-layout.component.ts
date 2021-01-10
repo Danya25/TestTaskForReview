@@ -2,6 +2,8 @@ import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
 import {TaskService} from '../../services/task.service';
 import {Mission} from '../../models/mission';
+import {Observable} from 'rxjs';
+import {Answer} from '../../models/answer';
 
 @Component({
     selector: 'app-app-layout',
@@ -11,15 +13,12 @@ import {Mission} from '../../models/mission';
 export class AppLayoutComponent implements OnInit {
 
     public opened = true;
-    public tasks: Mission[] = [];
 
-    constructor(private taskService: TaskService) {
+    constructor() {
     }
 
     ngOnInit(): void {
-        this.taskService.getAllById().subscribe(t => {
-            console.log(t);
-        });
+
     }
 
     public exitFromAccount(): void {
