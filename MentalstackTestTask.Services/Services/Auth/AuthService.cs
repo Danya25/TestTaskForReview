@@ -48,7 +48,7 @@ namespace MentalstackTestTask.Services.Services
                 issuer: "MentalstackTestTask",
                 audience: "MentalstackFront",
                 claims: claims,
-                expires: DateTime.Now.AddMinutes(20),
+                expires: DateTime.Now.AddMinutes(40),
                  signingCredentials: new SigningCredentials(
                     _signingEncodingKey.GetKey(),
                     _signingEncodingKey.SingingAlghorithm
