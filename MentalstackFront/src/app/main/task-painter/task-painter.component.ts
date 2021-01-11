@@ -11,15 +11,23 @@ import {Subscription} from 'rxjs';
 export class TaskPainterComponent implements OnInit, OnDestroy {
 
     public tasks: Mission[];
-    private subscriptions: Subscription[];
+    private subscriptions: Subscription[] = [];
+    public currentDate: string = new Date().toLocaleString().split(',')[0];
 
     constructor(private taskService: TaskService) {
     }
 
     ngOnInit(): void {
         this.subscriptions.push(this.taskService.getAllById().subscribe(t => {
-            this.tasks = t.value;
+            this.tasks = t.value.sort((a, b) => {
+                let date1 = new Date(a.endDate).getTime();
+                let date2 = new Date(b.endDate).getTime();
+                return date1 - date2;
+            });
             console.log(this.tasks);
+        }, error => {
+            console.warn(error);
+            this.tasks = [];
         }));
     }
 

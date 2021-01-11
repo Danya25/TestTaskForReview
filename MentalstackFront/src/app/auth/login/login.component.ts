@@ -14,7 +14,7 @@ import {Subscription} from 'rxjs';
 export class LoginComponent implements OnInit, OnDestroy {
 
     public form: FormGroup;
-    private subscriptions: Subscription[];
+    private subscriptions: Subscription[] = [];
 
     constructor(private authService: AuthService, private toastrService: ToastrService, private route: Router) {
     }

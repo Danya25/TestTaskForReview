@@ -15,7 +15,7 @@ import {Subscription} from 'rxjs';
 })
 export class TaskCreatorComponent implements OnInit, OnDestroy {
     public form: FormGroup;
-    private subscriptions: Subscription[];
+    private subscriptions: Subscription[] = [];
 
     constructor(private taskService: TaskService, private toastrService: ToastrService) {
     }
