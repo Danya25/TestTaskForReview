@@ -1,0 +1,24 @@
+<div class="d-flex flex-column main-wrapper">
+    <accordion [isAnimated]="true">
+        <accordion-group *ngFor="let task of tasks" style="margin-bottom: 10px">
+            <button class="btn btn-link clearfix" accordion-heading>
+                <span class="task-header"> {{task.endDate | date: 'mediumDate'}}, {{task.endTime | date: 'shortTime'}} </span>
+            </button>
+            <div class="d-flex flex-row justify-content-start align-items-start">
+                <div style="margin-top: 8px; margin-right: 10px;">
+                    <mat-checkbox></mat-checkbox>
+                </div>
+                <div>
+                    <div class="d-flex flex-column">
+                        <div class="task-title">
+                            <h2>{{task.title}}</h2>
+                        </div>
+                        <div>
+                            <input type="text" placeholder="Enter description..." [value]="task.description">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </accordion-group>
+    </accordion>
+</div>

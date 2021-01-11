@@ -36,9 +36,9 @@ namespace MentalstackTestTask.Services.Services
                 throw new Exception("Cannot find any account with such email");
 
             var verifiedPass = VerifyPassword(user.Password, userFromDb.Password, userFromDb.Salt);
-            if(!verifiedPass)
+            if (!verifiedPass)
                 throw new Exception("Password incorrect");
-              
+
             var claims = new Claim[]
             {
                 new Claim(ClaimTypes.Email, user.Email),

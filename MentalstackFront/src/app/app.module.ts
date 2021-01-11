@@ -32,6 +32,8 @@ import {BsDatepickerModule} from 'ngx-bootstrap/datepicker';
 import {TimepickerModule} from 'ngx-bootstrap/timepicker';
 import {MatSelectModule} from '@angular/material/select';
 import { TaskPainterComponent } from './main/task-painter/task-painter.component';
+import {AccordionModule} from 'ngx-bootstrap/accordion';
+import {MatCheckboxModule} from '@angular/material/checkbox';
 
 @NgModule({
     declarations: [
@@ -67,6 +69,8 @@ import { TaskPainterComponent } from './main/task-painter/task-painter.component
         FormsModule,
         MatOptionModule,
         MatSelectModule,
+        AccordionModule.forRoot(),
+        MatCheckboxModule,
     ],
     providers: [AuthGuard, UnauthGuard, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}, {
         provide: HTTP_INTERCEPTORS,
