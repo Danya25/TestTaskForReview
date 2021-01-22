@@ -2,6 +2,7 @@ import {Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Mission} from '../../models/mission';
 import {TaskService} from '../../services/task.service';
 import {Subscription} from 'rxjs';
+import {MissionPriority} from '../../models/enums/mission-priority.enum';
 
 @Component({
     selector: 'app-task-painter',
@@ -14,7 +15,7 @@ export class TaskPainterComponent implements OnInit, OnDestroy {
     private subscriptions: Subscription[] = [];
     public currentDate: string = new Date().toLocaleString().split(',')[0];
 
-    constructor(private taskService: TaskService) {
+    constructor(public taskService: TaskService) {
     }
 
     ngOnInit(): void {

@@ -34,6 +34,7 @@ import {MatSelectModule} from '@angular/material/select';
 import { TaskPainterComponent } from './main/task-painter/task-painter.component';
 import {AccordionModule} from 'ngx-bootstrap/accordion';
 import {MatCheckboxModule} from '@angular/material/checkbox';
+import {ScrollingModule} from '@angular/cdk/scrolling';
 
 @NgModule({
     declarations: [
@@ -71,6 +72,7 @@ import {MatCheckboxModule} from '@angular/material/checkbox';
         MatSelectModule,
         AccordionModule.forRoot(),
         MatCheckboxModule,
+        ScrollingModule,
     ],
     providers: [AuthGuard, UnauthGuard, {provide: HTTP_INTERCEPTORS, useClass: TokenInterceptor, multi: true}, {
         provide: HTTP_INTERCEPTORS,

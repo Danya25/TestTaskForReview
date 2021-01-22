@@ -195,3 +195,10 @@ button.toast-close-button {
 .bs-datepicker-container{
     padding: 0px !important;
 }
+
+.priority-circle {
+    border-radius: 50%;
+    margin-right: 12px;
+    width: 13px;
+    height: 13px;
+}
