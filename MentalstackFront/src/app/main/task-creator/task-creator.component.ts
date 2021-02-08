@@ -36,6 +36,7 @@ export class TaskCreatorComponent implements OnInit, OnDestroy {
 
     public onSubmit() {
         const task: Mission = {
+            id: 0,
             title: this.form.get('title').value,
             priority: this.form.get('priority').value,
             endTime: this.form.get('endTime').value,
