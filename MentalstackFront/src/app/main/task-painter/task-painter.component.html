@@ -16,24 +16,26 @@
                             </div>
                             <div>
                                 <mat-form-field class="w-100">
-                                    <input matInput placeholder="Enter description..." [value]="task.description">
+                                    <input matInput placeholder="Enter description..." [(ngModel)]="task.description">
                                 </mat-form-field>
                             </div>
                             <div class="d-flex flex-row">
                                 <div class="priority-wrapper d-flex flex-row align-items-center" style="margin-right: 30px;">
-                                    <div class="priority-circle" [ngStyle]="{'background-color': taskService.getTaskColor(task.priority)}">
-                                    </div>
+                                    <div class="priority-circle" [ngStyle]="{'background-color': taskService.getTaskColor(task.priority)}"></div>
                                     <div>
                                         <span>{{task.priority}}</span>
                                     </div>
                                 </div>
-                                <div class="time-wrapper d-flex flex-row align-items-center">
-                                    <div class="time">
+                                <div style="margin-right: 30px;" class="time-wrapper d-flex flex-row align-items-center">
+                                    <div class="time-icon">
                                         <mat-icon>access_time</mat-icon>
                                     </div>
                                     <div>
-                                        <span>{{task.endTime | date: 'shortTime'}}</span>
+                                        <span class="task-time">{{task.endTime | date: 'shortTime'}}</span>
                                     </div>
+                                </div>
+                                <div>
+                                    <button (click)="saveDescription(task.description, task.id)" class="btn btn-outline-success">Сохранить</button>
                                 </div>
                             </div>
                         </div>

@@ -3,6 +3,7 @@ import {Mission} from '../../models/mission';
 import {TaskService} from '../../services/task.service';
 import {Subscription} from 'rxjs';
 import {MissionPriority} from '../../models/enums/mission-priority.enum';
+import {TaskDescriptionInfo} from '../../models/task-description-info';
 
 @Component({
     selector: 'app-task-painter',
@@ -20,6 +21,7 @@ export class TaskPainterComponent implements OnInit, OnDestroy {
 
     ngOnInit(): void {
         this.subscriptions.push(this.taskService.getAllById().subscribe(t => {
+            console.log(t);
             this.tasks = t.value.sort((a, b) => {
                 let date1 = new Date(a.endDate).getTime();
                 let date2 = new Date(b.endDate).getTime();
@@ -35,4 +37,14 @@ export class TaskPainterComponent implements OnInit, OnDestroy {
     ngOnDestroy(): void {
     }
 
+    public saveDescription(text: string, taskId: number): void {
+        console.log(taskId, text);
+        const taskDescriptionInfo: TaskDescriptionInfo = {
+            taskId,
+            text
+        };
+        this.taskService.saveDescriptionTask(taskDescriptionInfo).subscribe(result => {
+            console.log(result);
+        });
+    }
 }
