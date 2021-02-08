@@ -6,8 +6,10 @@ using System.Text;
 
 namespace MentalstackTestTask.Domain.DTO
 {
-    public class MissionDTO
+    public sealed class MissionDTO
     {
+        public int Id { get; set; }
+
         [Required(ErrorMessage = "Title is required!")]
         public string Title { get; set; }
 

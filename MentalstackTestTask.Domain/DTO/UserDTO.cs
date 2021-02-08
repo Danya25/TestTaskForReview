@@ -2,7 +2,7 @@
 
 namespace MentalstackTestTask.Domain.DTO
 {
-    public class UserDTO
+    public sealed class UserDTO
     {
         [Required(ErrorMessage = "Email required")]
         [EmailAddress(ErrorMessage = "Email incorrect")]
