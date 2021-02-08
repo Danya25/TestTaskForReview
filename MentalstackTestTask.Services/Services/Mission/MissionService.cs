@@ -19,33 +19,52 @@ namespace MentalstackTestTask.Services.Services.Mission
             _context = context;
             _mapper = mapper;
         }
-        public async Task<List<MissionDTO>> GetAllById(int id)
+        public async Task<List<MissionDTO>> GetCurrentTasksByUserId(int id)
         {
-            var result = await _context.Missions.Where(t=> t.UserId == id).ToListAsync();
-            var missionsDto = _mapper.Map<List<MissionDTO>>(result);
+            var dateNow = DateTime.Now;
+            var shortDate = new DateTime(dateNow.Year, dateNow.Month, dateNow.Day);
+
+            var missions = await _context.Missions.Where(t=> t.UserId == id && t.EndDate >= shortDate).ToListAsync();
+            var missionsDto = _mapper.Map<List<MissionDTO>>(missions);
+
             return missionsDto;
         }
 
-        public async Task<bool> Save(MissionDTO task, int userId)
+        public async Task<bool> SaveTask(MissionDTO task, int userId)
         {
             using (var transaction = _context.Database.BeginTransaction())
             {
                 try
                 {
                     var mission = _mapper.Map<DAL.Models.Mission>(task);
+
                     mission.UserId = userId;
                     _context.Missions.Add(mission);
                     _context.SaveChanges();
                     await transaction.CommitAsync();
+
                     return true;
                 }
                 catch
                 {
                     await transaction.RollbackAsync();
+
                     return false;
                 }
             }
         }
+        public async Task<string> SaveDescriptionTask(TaskDescriptionInfoDTO taskInfo, int userId)
+        {
+            var task = await _context.Missions.Where(t => t.Id == taskInfo.TaskId).FirstOrDefaultAsync();
+            if (task is null)
+                throw new Exception("Task were not found!");
+            if (task.UserId != userId)
+                throw new Exception("The task is not yours!");
 
+            task.Description = taskInfo.Text;
+
+            await _context.SaveChangesAsync();
+            return "Success!";
+        }
     }
 }
