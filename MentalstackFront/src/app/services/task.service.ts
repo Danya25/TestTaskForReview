@@ -4,6 +4,7 @@ import {Observable} from 'rxjs';
 import {Mission} from '../models/mission';
 import {Answer} from '../models/answer';
 import {MissionPriority} from '../models/enums/mission-priority.enum';
+import {TaskDescriptionInfo} from '../models/task-description-info';
 
 @Injectable({
     providedIn: 'root'
@@ -19,6 +20,10 @@ export class TaskService {
 
     public getAllById(): Observable<Answer<Mission[]>> {
         return this.http.get<Answer<Mission[]>>('api/Mission/GetAllById');
+    }
+
+    public saveDescriptionTask(taskDescription: TaskDescriptionInfo): Observable<Answer<boolean>> {
+        return this.http.post<Answer<boolean>>('api/Mission/SaveDescriptionTask', taskDescription);
     }
 
     public getTaskColor(priority: MissionPriority): string {
