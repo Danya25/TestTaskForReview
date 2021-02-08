@@ -43,7 +43,7 @@ namespace MentalstackTestTask.Controllers
         }
 
         [HttpGet("[action]")]
-        public async Task<MethodResult<List<MissionDTO>>> GetAllById()
+        public async Task<MethodResult<List<MissionDTO>>> GetCurrentTasks()
         {
             try
             {

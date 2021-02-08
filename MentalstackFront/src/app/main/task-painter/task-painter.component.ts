@@ -20,7 +20,7 @@ export class TaskPainterComponent implements OnInit, OnDestroy {
     }
 
     ngOnInit(): void {
-        this.subscriptions.push(this.taskService.getAllById().subscribe(t => {
+        this.subscriptions.push(this.taskService.getCurrentTasks().subscribe(t => {
             console.log(t);
             this.tasks = t.value.sort((a, b) => {
                 let date1 = new Date(a.endDate).getTime();

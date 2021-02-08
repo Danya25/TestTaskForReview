@@ -18,8 +18,8 @@ export class TaskService {
         return this.http.post<Answer<boolean>>('api/Mission/Save', task);
     }
 
-    public getAllById(): Observable<Answer<Mission[]>> {
-        return this.http.get<Answer<Mission[]>>('api/Mission/GetAllById');
+    public getCurrentTasks(): Observable<Answer<Mission[]>> {
+        return this.http.get<Answer<Mission[]>>('api/Mission/GetCurrentTasks');
     }
 
     public saveDescriptionTask(taskDescription: TaskDescriptionInfo): Observable<Answer<boolean>> {
