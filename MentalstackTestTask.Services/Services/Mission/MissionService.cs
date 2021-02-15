@@ -56,6 +56,7 @@ namespace MentalstackTestTask.Services.Services.Mission
         public async Task<string> SaveDescriptionTask(TaskDescriptionInfoDTO taskInfo, int userId)
         {
             var task = await _context.Missions.Where(t => t.Id == taskInfo.TaskId).FirstOrDefaultAsync();
+
             if (task is null)
                 throw new Exception("Task were not found!");
             if (task.UserId != userId)
