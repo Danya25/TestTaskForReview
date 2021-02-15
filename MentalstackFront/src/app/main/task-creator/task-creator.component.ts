@@ -1,4 +1,4 @@
-import {Component, OnDestroy, OnInit, ViewChild} from '@angular/core';
+import {Component, EventEmitter, OnDestroy, OnInit, Output, ViewChild} from '@angular/core';
 import {FormControl, FormGroup, Validators} from '@angular/forms';
 import {MissionPriority} from '../../models/enums/mission-priority.enum';
 import {User} from '../../models/user';
@@ -6,7 +6,7 @@ import {Mission} from '../../models/mission';
 import {TaskService} from '../../services/task.service';
 import {UserService} from '../../services/user.service';
 import {ToastrService} from 'ngx-toastr';
-import {Subscription} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 
 @Component({
     selector: 'app-task-creator',
@@ -43,6 +43,7 @@ export class TaskCreatorComponent implements OnInit, OnDestroy {
             endDate: this.form.get('endDate').value,
             description: '',
         };
+        this.taskService.saveLastTask(task);
         this.subscriptions.push(this.taskService.saveTask(task).subscribe(t => {
             if (t.success) {
                 this.toastrService.success('Your task success added!');

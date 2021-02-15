@@ -1,7 +1,7 @@
-import {Component, Input, OnDestroy, OnInit} from '@angular/core';
+import {ChangeDetectorRef, Component, Input, OnDestroy, OnInit} from '@angular/core';
 import {Mission} from '../../models/mission';
 import {TaskService} from '../../services/task.service';
-import {Subscription} from 'rxjs';
+import {Observable, Subscription} from 'rxjs';
 import {MissionPriority} from '../../models/enums/mission-priority.enum';
 import {TaskDescriptionInfo} from '../../models/task-description-info';
 
@@ -12,14 +12,17 @@ import {TaskDescriptionInfo} from '../../models/task-description-info';
 })
 export class TaskPainterComponent implements OnInit, OnDestroy {
 
-    public tasks: Mission[];
+    public tasks: Mission[] = [];
     private subscriptions: Subscription[] = [];
     public currentDate: string = new Date().toLocaleString().split(',')[0];
 
-    constructor(public taskService: TaskService) {
+    constructor(public taskService: TaskService, public cdr: ChangeDetectorRef) {
     }
 
     ngOnInit(): void {
+        this.subscriptions.push(this.taskService.getLastSavedTask().subscribe(t => {
+            this.tasks = [...this.tasks, t];
+        }));
         this.subscriptions.push(this.taskService.getCurrentTasks().subscribe(t => {
             console.log(t);
             this.tasks = t.value.sort((a, b) => {

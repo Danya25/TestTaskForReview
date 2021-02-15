@@ -1,6 +1,6 @@
 import {Injectable} from '@angular/core';
 import {HttpClient} from '@angular/common/http';
-import {Observable} from 'rxjs';
+import {Observable, Subject} from 'rxjs';
 import {Mission} from '../models/mission';
 import {Answer} from '../models/answer';
 import {MissionPriority} from '../models/enums/mission-priority.enum';
@@ -13,6 +13,8 @@ export class TaskService {
 
     constructor(private http: HttpClient) {
     }
+
+    private tasksSubject: Subject<Mission> = new Subject<Mission>();
 
     public saveTask(task: Mission): Observable<Answer<boolean>> {
         return this.http.post<Answer<boolean>>('api/Mission/Save', task);
@@ -40,4 +42,13 @@ export class TaskService {
                 return '#000000';
         }
     }
+
+    public getLastSavedTask(): Observable<Mission> {
+        return this.tasksSubject;
+    }
+
+    public saveLastTask(mission: Mission): void {
+        this.tasksSubject.next(mission);
+    }
+
 }

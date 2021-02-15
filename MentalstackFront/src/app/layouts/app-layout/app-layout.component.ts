@@ -18,7 +18,6 @@ export class AppLayoutComponent implements OnInit {
     }
 
     ngOnInit(): void {
-
     }
 
     public exitFromAccount(): void {
