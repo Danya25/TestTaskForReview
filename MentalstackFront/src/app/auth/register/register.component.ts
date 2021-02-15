@@ -12,10 +12,13 @@ import {Subscription} from 'rxjs';
     styleUrls: ['./register.component.css']
 })
 export class RegisterComponent implements OnInit, OnDestroy {
+
     public form: FormGroup;
     private subscriptions: Subscription[] = [];
 
-    constructor(private authService: AuthService, private toastrService: ToastrService, private route: Router) {
+    constructor(private authService: AuthService,
+                private toastrService: ToastrService,
+                private route: Router) {
     }
 
     ngOnInit(): void {
@@ -26,18 +29,7 @@ export class RegisterComponent implements OnInit, OnDestroy {
         }, [this.passwordValidator]);
     }
 
-    private passwordValidator(form: FormGroup): ValidationErrors {
-        const rePassword = form.get('repassword').value;
-        const password = form.get('password').value;
-        if (rePassword !== password) {
-            console.log('error');
-            return {compare: true};
-        }
-        return null;
-    }
-
-    // tslint:disable-next-line:typedef
-    onSubmit() {
+    public onSubmit(): void {
         const user: User = {
             email: this.form.get('email').value,
             password: this.form.get('password').value,
@@ -51,6 +43,16 @@ export class RegisterComponent implements OnInit, OnDestroy {
             this.toastrService.success(t.value);
             this.route.navigate(['/auth/login']);
         }));
+    }
+
+    private passwordValidator(form: FormGroup): ValidationErrors {
+        const rePassword = form.get('repassword').value;
+        const password = form.get('password').value;
+        if (rePassword !== password) {
+            console.log('error');
+            return {compare: true};
+        }
+        return null;
     }
 
     ngOnDestroy(): void {

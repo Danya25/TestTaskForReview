@@ -13,16 +13,17 @@ import {TaskDescriptionInfo} from '../../models/task-description-info';
 export class TaskPainterComponent implements OnInit, OnDestroy {
 
     public tasks: Mission[] = [];
-    private subscriptions: Subscription[] = [];
     public currentDate: string = new Date().toLocaleString().split(',')[0];
+    private subscriptions: Subscription[] = [];
 
     constructor(public taskService: TaskService, public cdr: ChangeDetectorRef) {
     }
 
     ngOnInit(): void {
-        this.subscriptions.push(this.taskService.getLastSavedTask().subscribe(t => {
+        this.subscriptions.push(this.taskService.getLastSavedTaskFromObservable().subscribe(t => {
             this.tasks = [...this.tasks, t];
         }));
+
         this.subscriptions.push(this.taskService.getCurrentTasks().subscribe(t => {
             console.log(t);
             this.tasks = t.value.sort((a, b) => {
@@ -37,9 +38,6 @@ export class TaskPainterComponent implements OnInit, OnDestroy {
         }));
     }
 
-    ngOnDestroy(): void {
-    }
-
     public saveDescription(text: string, taskId: number): void {
         console.log(taskId, text);
         const taskDescriptionInfo: TaskDescriptionInfo = {
@@ -50,4 +48,8 @@ export class TaskPainterComponent implements OnInit, OnDestroy {
             console.log(result);
         });
     }
+
+    ngOnDestroy(): void {
+    }
+
 }

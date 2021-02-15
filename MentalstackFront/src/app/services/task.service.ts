@@ -43,11 +43,11 @@ export class TaskService {
         }
     }
 
-    public getLastSavedTask(): Observable<Mission> {
+    public getLastSavedTaskFromObservable(): Observable<Mission> {
         return this.tasksSubject;
     }
 
-    public saveLastTask(mission: Mission): void {
+    public saveLastTaskIntoObservable(mission: Mission): void {
         this.tasksSubject.next(mission);
     }
 

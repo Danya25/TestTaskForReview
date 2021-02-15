@@ -25,13 +25,12 @@ export class ErrorInterceptor implements HttpInterceptor {
                 } else if (error.status === 400) {
                     const errors = error.error.errors;
                     const title = error.error.title;
-                    if (errors !== null)
-                    {
+                    if (errors !== null) {
                         for (const key in errors) {
                             const value = errors[key];
                             this.toastrSerivce.error(value, title);
                         }
-                    }else{
+                    } else {
                         this.toastrSerivce.error('An error occurred on the server');
                     }
 

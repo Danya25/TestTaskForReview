@@ -16,17 +16,19 @@ export class LoginComponent implements OnInit, OnDestroy {
     public form: FormGroup;
     private subscriptions: Subscription[] = [];
 
-    constructor(private authService: AuthService, private toastrService: ToastrService, private route: Router) {
+    constructor(private authService: AuthService,
+                private toastrService: ToastrService,
+                private route: Router) {
     }
 
-    ngOnInit(): void {
+    public ngOnInit(): void {
         this.form = new FormGroup({
             email: new FormControl('', [Validators.required, Validators.email]),
             password: new FormControl('', [Validators.required, Validators.pattern('(?=.*[0-9])(?=.*[!@#$%^&*])(?=(?:.*[A-Z]){2,})[0-9a-zA-Z!@#$%^&*]{8,}')])
         });
     }
 
-    onSubmit() {
+    public onSubmit(): void {
         const user: User = {
             email: this.form.get('email').value,
             password: this.form.get('password').value,
@@ -37,10 +39,10 @@ export class LoginComponent implements OnInit, OnDestroy {
                 this.toastrService.error(t.exceptionMessage);
                 return;
             }
-            this.toastrService.success('Log in was successful');
             localStorage.setItem(
                 'user', JSON.stringify({name: user.email, token: t.value.token, userId: t.value.userId}),
             );
+            this.toastrService.success('Log in was successful');
             this.route.navigate(['']);
         }));
     }

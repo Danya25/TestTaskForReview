@@ -14,6 +14,7 @@ import {Observable, Subscription} from 'rxjs';
     styleUrls: ['./task-creator.component.css']
 })
 export class TaskCreatorComponent implements OnInit, OnDestroy {
+
     public form: FormGroup;
     private subscriptions: Subscription[] = [];
 
@@ -30,11 +31,7 @@ export class TaskCreatorComponent implements OnInit, OnDestroy {
         });
     }
 
-    public setPriority(priority: number): void {
-        this.form.controls['priority'].setValue(MissionPriority[priority]);
-    }
-
-    public onSubmit() {
+    public onSubmit(): void {
         const task: Mission = {
             id: 0,
             title: this.form.get('title').value,
@@ -43,7 +40,7 @@ export class TaskCreatorComponent implements OnInit, OnDestroy {
             endDate: this.form.get('endDate').value,
             description: '',
         };
-        this.taskService.saveLastTask(task);
+        this.taskService.saveLastTaskIntoObservable(task);
         this.subscriptions.push(this.taskService.saveTask(task).subscribe(t => {
             if (t.success) {
                 this.toastrService.success('Your task success added!');
@@ -55,6 +52,11 @@ export class TaskCreatorComponent implements OnInit, OnDestroy {
             console.warn(error);
         }));
     }
+
+    public setPriority(priority: number): void {
+        this.form.controls['priority'].setValue(MissionPriority[priority]);
+    }
+
 
     ngOnDestroy(): void {
     }
