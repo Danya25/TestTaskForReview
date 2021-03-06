@@ -40,16 +40,16 @@ namespace MentalstackTestTask.Common
             StringBuilder stringBuilder = new StringBuilder();
             if (ex == null)
                 return stringBuilder.ToString();
-            stringBuilder.AppendFormat("Message: {0}; Error body: {1}", (object)this.Message, (object)ex.Message);
+            stringBuilder.AppendFormat("Message: {0}; Error body: {1}", Message, ex.Message);
             if (ex.InnerException != null)
-                stringBuilder.AppendFormat("\r\nInner exception: {0}", (object)this.GetFullExceptionMessage(ex.InnerException));
+                stringBuilder.AppendFormat("\r\nInner exception: {0}", this.GetFullExceptionMessage(ex.InnerException));
             return stringBuilder.ToString();
         }
         public string GetFullExceptionMessage()
         {
             if (this._exception == null)
-                return string.Format("Message: {0}; Exception missing", (object)this.Message);
-            return string.Format("Description:{0}\r\nTrace:{1}", (object)this.GetFullExceptionMessage(this._exception), (object)this._exception.StackTrace);
+                return string.Format("Message: {0}; Exception missing", Message);
+            return string.Format("Description:{0}\r\nTrace:{1}", this.GetFullExceptionMessage(this._exception), _exception.StackTrace);
         }
 
         public MethodResult<T> SetSuccess(T value, string message = "")
