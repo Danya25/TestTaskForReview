@@ -28,6 +28,10 @@ export class TaskService {
         return this.http.post<Answer<boolean>>('api/Mission/SaveDescriptionTask', taskDescription);
     }
 
+    public deleteTask(task: Mission): Observable<Answer<boolean>> {
+        return this.http.post<Answer<boolean>>('api/Mission/Delete', task);
+    }
+
     public getTaskColor(priority: MissionPriority): string {
         switch (+MissionPriority[priority]) {
             case MissionPriority.Neutral:

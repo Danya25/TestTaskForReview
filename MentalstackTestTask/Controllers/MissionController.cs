@@ -13,7 +13,7 @@ using System.Threading.Tasks;
 
 namespace MentalstackTestTask.Controllers
 {
-    [Route("api/[controller]")]
+    [Route("api/[controller]/[action]")]
     [ApiController]
     [Authorize]
     public class MissionController : ControllerBase
@@ -26,7 +26,7 @@ namespace MentalstackTestTask.Controllers
             _missionService = missionService;
         }
 
-        [HttpPost("[action]")]
+        [HttpPost]
         public async Task<MethodResult<bool>> Save(MissionDTO task)
         {
             try
@@ -42,23 +42,39 @@ namespace MentalstackTestTask.Controllers
             }
         }
 
-        [HttpGet("[action]")]
+        [HttpPost]
+        public async Task<MethodResult<bool>> Delete(MissionDTO task)
+        {
+            try
+            {
+                var userId = int.Parse(User.Claims.First(t => t.Type == "UserId").Value);
+                var result = await _missionService.DeleteTask(task, userId);
+                return result.ToSuccessMethodResult();
+            }
+            catch (Exception ex)
+            {
+                _logger.LogError(ex.Message);
+                return ex.ToErrorMethodResult<bool>();
+            }
+        }
+
+        [HttpGet]
         public async Task<MethodResult<List<MissionDTO>>> GetCurrentTasks()
         {
             try
             {
-                var userId = int.Parse(User.Claims.First(t=> t.Type == "UserId").Value);
+                var userId = int.Parse(User.Claims.First(t => t.Type == "UserId").Value);
                 var result = await _missionService.GetCurrentTasksByUserId(userId);
                 return result.ToSuccessMethodResult();
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 _logger.LogError(ex.Message);
                 return ex.ToErrorMethodResult<List<MissionDTO>>();
             }
         }
-        
-        [HttpPost("[action]")]
+
+        [HttpPost]
         public async Task<MethodResult<string>> SaveDescriptionTask(TaskDescriptionInfoDTO taskInfo)
         {
             try

@@ -4,6 +4,7 @@ import {TaskService} from '../../services/task.service';
 import {Observable, Subscription} from 'rxjs';
 import {MissionPriority} from '../../models/enums/mission-priority.enum';
 import {TaskDescriptionInfo} from '../../models/task-description-info';
+import {ToastrService} from 'ngx-toastr';
 
 @Component({
     selector: 'app-task-painter',
@@ -16,7 +17,7 @@ export class TaskPainterComponent implements OnInit, OnDestroy {
     public currentDate: string = new Date().toLocaleString().split(',')[0];
     private subscriptions: Subscription[] = [];
 
-    constructor(public taskService: TaskService, public cdr: ChangeDetectorRef) {
+    constructor(public taskService: TaskService, public toastrService: ToastrService) {
     }
 
     ngOnInit(): void {
@@ -46,7 +47,27 @@ export class TaskPainterComponent implements OnInit, OnDestroy {
         };
         this.taskService.saveDescriptionTask(taskDescriptionInfo).subscribe(result => {
             console.log(result);
+        }, error => {
+            console.log(error);
         });
+    }
+
+    public deleteTask(task: Mission): void {
+        this.taskService.deleteTask(task).subscribe(t => {
+            if (t.success) {
+                this.deleteTaskFromList(task);
+                this.toastrService.success('Task deleted successfully');
+            }
+        }, error => {
+            console.log(error);
+        });
+    }
+
+    private deleteTaskFromList(task: Mission): void {
+        let index = this.tasks.indexOf(task);
+        let newTasks = this.tasks;
+        newTasks.splice(index, 1);
+        this.tasks = [...newTasks];
     }
 
     ngOnDestroy(): void {

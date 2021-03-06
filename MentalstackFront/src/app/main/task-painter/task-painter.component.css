@@ -11,3 +11,7 @@
 .time-icon{
     margin-right: 5px;
 }
+.delete-task-btn{
+    cursor: pointer;
+}
+

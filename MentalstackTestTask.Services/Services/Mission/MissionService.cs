@@ -1,4 +1,5 @@
 ﻿using AutoMapper;
+using MentalstackTestTask.DAL.Models;
 using MentalstackTestTask.DAL;
 using MentalstackTestTask.Domain.DTO;
 using Microsoft.EntityFrameworkCore;
@@ -24,7 +25,7 @@ namespace MentalstackTestTask.Services.Services.Mission
             var dateNow = DateTime.Now;
             var shortDate = new DateTime(dateNow.Year, dateNow.Month, dateNow.Day);
 
-            var missions = await _context.Missions.Where(t=> t.UserId == id && t.EndDate >= shortDate).ToListAsync();
+            var missions = await _context.Missions.Where(t => t.UserId == id && t.EndDate >= shortDate).ToListAsync();
             var missionsDto = _mapper.Map<List<MissionDTO>>(missions);
 
             return missionsDto;
@@ -39,6 +40,7 @@ namespace MentalstackTestTask.Services.Services.Mission
                     var mission = _mapper.Map<DAL.Models.Mission>(task);
 
                     mission.UserId = userId;
+
                     _context.Missions.Add(mission);
                     _context.SaveChanges();
                     await transaction.CommitAsync();
@@ -57,15 +59,32 @@ namespace MentalstackTestTask.Services.Services.Mission
         {
             var task = await _context.Missions.Where(t => t.Id == taskInfo.TaskId).FirstOrDefaultAsync();
 
-            if (task is null)
-                throw new Exception("Task were not found!");
-            if (task.UserId != userId)
-                throw new Exception("The task is not yours!");
+            ValidateTask(task, userId);
 
             task.Description = taskInfo.Text;
 
             await _context.SaveChangesAsync();
             return "Success!";
+        }
+
+        public async Task<bool> DeleteTask(MissionDTO taskDto, int userId)
+        {
+            var task = await _context.Missions.Where(t => t.Id == taskDto.Id).FirstOrDefaultAsync();
+
+            ValidateTask(task, userId);
+
+            _context.Missions.Remove(task);
+            await _context.SaveChangesAsync();
+
+            return true;
+        }
+
+        private static void ValidateTask(DAL.Models.Mission task, int userId)
+        {
+            if (task.UserId != userId)
+                throw new Exception("The task is not yours!");
+            if (task is null)
+                throw new Exception("Task were not found!");
         }
     }
 }
