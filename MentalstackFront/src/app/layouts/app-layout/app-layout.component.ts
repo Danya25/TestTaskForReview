@@ -20,6 +20,16 @@ export class AppLayoutComponent implements OnInit {
     ngOnInit(): void {
     }
 
+    public changeSideNav(): void {
+        this.opened = !this.opened;
+    }
+
+    public onResize(event: any): void {
+        if (event.target.innerWidth <= 875) {
+            this.opened = false;
+        }
+    }
+
     public exitFromAccount(): void {
         localStorage.clear();
         location.reload();
