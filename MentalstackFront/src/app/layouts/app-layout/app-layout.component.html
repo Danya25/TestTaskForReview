@@ -2,7 +2,7 @@
     <mat-sidenav-container class="h-100">
         <mat-sidenav (window:resize)="onResize($event)" class="sidenav" [(opened)]="opened" mode="side" #sidenav>
             <mat-nav-list class="text-center" style="width: 221px;">
-                <img width="110px" height="60px" src="../../../assets/registration/logo.svg">
+                <img width="110px" height="60px" src="../../../assets/registration/logo.svg" alt="logo">
                 <h2 class="priority-title text-left">Priority</h2>
                 <a mat-list-item> All</a>
                 <a mat-list-item> Urgently </a>
@@ -16,8 +16,14 @@
             <div class="side-control-btn" (click)="changeSideNav()"></div>
             <div class="sidenav-content h-100">
                 <div class="d-flex flex-column justify-content-between h-100">
-                    <div class="align-self-end" style="background: #2F80ED; border-radius: 50%; width: 40px; max-height: 40px; height: 100%;"></div>
-                    <app-task-painter  style="height: 100%; margin-top: 10px;"></app-task-painter>
+                    <div class=" align-self-end"
+                         style="background: #2F80ED; border-radius: 50%; width: 40px; max-height: 40px; height: 100%; text-align: center; cursor: pointer">
+                        <svg xmlns="http://www.w3.org/2000/svg" height="24" viewBox="0 0 24 24" width="24" style="height: 100%;">
+                            <path d="M0 0h24v24H0z" fill="none"/>
+                            <path d="M3 18h18v-2H3v2zm0-5h18v-2H3v2zm0-7v2h18V6H3z"/>
+                        </svg>
+                    </div>
+                    <app-task-painter style="height: 100%; margin-top: 10px;"></app-task-painter>
                     <app-task-creator></app-task-creator>
                 </div>
             </div>
