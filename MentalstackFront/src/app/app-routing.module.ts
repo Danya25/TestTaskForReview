@@ -10,9 +10,7 @@ import {UnauthGuard} from './services/guards/unauth.guard';
 
 const routes: Routes = [
     {
-        path: 'auth', component: AuthComponent, canActivate: [UnauthGuard], children: [
-            {path: 'login', component: LoginComponent},
-            {path: 'registration', component: RegisterComponent}]
+        path: 'auth', loadChildren: () => import('./auth/auth.module').then(m => m.AuthModule)
     },
     {path: '', component: AppLayoutComponent, canActivate: [AuthGuard]},
     {path: '**', redirectTo: 'auth/registration'}
